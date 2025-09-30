@@ -1,0 +1,39 @@
+- name: "Gachibowli Diwakar"
+  Dob: "02-11-1967"
+  age: 68
+  addresses:
+  - doorno: "6-9-0-98"
+    area: "Gachibowli"
+    pin: 98765
+    type: PERM
+
+  - doorno: "6-9-0-98"
+    area: "Gachibowli"
+    pin: 98765
+    type: CURRENT
+  
+  skills:
+  - java
+  - python
+  - devops
+  - cloud
+
+- name: "Gachibowli Diwakar"
+  Dob: "02-11-1967"
+  age: 68
+  addresses:
+  - doorno: "6-9-0-98"
+    area: "Gachibowli"
+    pin: 98765
+    type: PERM
+
+  - doorno: "6-9-0-98"
+    area: "Gachibowli"
+    pin: 98765
+    type: CURRENT
+  
+  skills:
+  - java
+  - python
+  - devops
+  - cloud

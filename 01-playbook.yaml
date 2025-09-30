@@ -1,0 +1,5 @@
+- name: ping server
+  hosts: frontend # goes to inventory and get servers under frontend group
+  tasks:
+  - name: ping
+    ansible.builtin.ping:
