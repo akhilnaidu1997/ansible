@@ -1,7 +1,8 @@
 - name: using conditions in yaml 
   hosts: local
   connection: local
-  number: 5
+  vars: 
+    number: 5
   tasks: 
   - name: using conditions 
     ansible.builtin.debug:
