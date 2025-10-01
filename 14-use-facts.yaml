@@ -1,6 +1,7 @@
 - name: making use of facts
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: Install nginx if redhat
     ansible.builtin.dnf:
