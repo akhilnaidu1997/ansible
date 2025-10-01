@@ -7,7 +7,11 @@
     ansible.builtin.package:
       name: "{{item}}"
       state: latest 
-      
+    loop:
+    - nginx
+    - mysql
+    - zip
+    
   - name: start services
     ansible.builtin.service:
       name: "{{item}}"
