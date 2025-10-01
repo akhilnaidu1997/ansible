@@ -11,13 +11,12 @@
     - nginx
     - mysql
     - zip
-    
+
   - name: start services
     ansible.builtin.service:
       name: "{{item}}"
       state: started
     loop:
     - nginx
-    - mysql
   
     
