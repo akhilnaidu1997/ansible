@@ -30,7 +30,7 @@
 
   - name: read from a yaml file
     ansible.builtin.set_fact:
-      test_new: "{{ lookup('file','/home/ec2-user/ansible/test.yaml') | from_yaml }}"
+      test_new: "{{ lookup('file','test.yml') | from_yaml }}"
 
   - name: convert to json
     ansible.builtin.debug:
