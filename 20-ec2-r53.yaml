@@ -3,7 +3,7 @@
   connection: local
   vars: 
     ami_id: ami-09c813fb71547fc4f
-    sg_id: sg-04d05cce0f4f0b40d 
+    sg_id: sg-0064dd2246c16fe57 
     zone_id: Z06190873R7XMZC2PKDSV
     domain: daws86s-akhil.shop
     instance:
