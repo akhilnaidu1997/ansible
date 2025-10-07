@@ -35,3 +35,8 @@
   - name: convert to json
     ansible.builtin.debug:
       msg: "{{ test_new | to_json }}"
+
+  - name: copy to a file
+    ansible.builtin.copy:
+      src: "{{ test_new | to_nice_json }}"
+      dest: ./test-new.json
