@@ -3,7 +3,7 @@
   connection: local
   vars: 
     ami_id: ami-09c813fb71547fc4f
-    sg_id: sg-0d9724b44c97a6c47 
+    sg_id: sg-0d9724b44c97a6c47
     zone_id: Z06190873R7XMZC2PKDSV
     domain: daws86s-akhil.shop
     instance:
@@ -13,7 +13,6 @@
     amazon.aws.ec2_instance:
       name: "{{ item }}"
       instance_type: t2.micro
-      vpc_id: vpc-03ef1a8d980ec947b
       vpc_subnet_id: subnet-0193b8233224c1963
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
