@@ -13,6 +13,7 @@
     amazon.aws.ec2_instance:
       name: "{{ item }}"
       instance_type: t2.micro
+      vpc_id: vpc-03ef1a8d980ec947b
       vpc_subnet_id: subnet-0193b8233224c1963
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
