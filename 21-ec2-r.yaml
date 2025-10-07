@@ -1,0 +1,31 @@
+- name: create ec2 user and route53
+  hosts: local
+  connection: local
+  vars: 
+    ami_id: ami-09c813fb71547fc4f
+    sg_id: sg-0d9724b44c97a6c47
+    zone_id: Z06190873R7XMZC2PKDSV
+    domain: daws86s-akhil.shop
+    instances:
+    - mongodb
+  tasks:
+  - name: create ec2 user
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      instance_type: t2.micro 
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+      tags:
+        Name: MongoDB 
+    loop: "{{ instances }}"
+    register: ec2_output 
+
+  - name: print public ip
+    ansible.builtin.debug: 
+      msg: "{{ item.instances[0].public_ip_address}}"
+    loop: "{{ ec2_output.instances }}"
+
+  - name: print public ip
+    ansible.builtin.debug: 
+      msg: "{{ item.instances[0].public_ip_address}}"
+    loop: "{{ ec2_output.instances }}"
