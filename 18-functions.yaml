@@ -3,9 +3,14 @@
   connection: local 
   vars:
     technologies: Devops,linux,shell,ansible,cloud 
+    # tags:
+    #   Application: payment
+    #   Environment: dev
     tags:
-      Application: payment
-      Environment: dev
+    - key: Application
+      value: payment
+    - key: Environment
+      value: dev
   tasks:
   - name: default variables
     ansible.builtin.debug:
@@ -18,3 +23,7 @@
   - name: dictionary to list
     ansible.builtin.debug:
       msg: "{{ tags | dict2items }}"
+
+  - name: list to dictionary
+    ansible.builtin.debug:
+      msg: "{{ tags | items2dict }}"
