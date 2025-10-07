@@ -11,7 +11,7 @@
       value: payment
     - key: Environment
       value: dev
-    text: "akhilnaidu1998@gmail.com"
+    text: "akhilNAIDU1998@gmail.com"
   tasks:
   - name: default variables
     ansible.builtin.debug:
@@ -45,3 +45,7 @@
   - name: convert to upper
     ansible.builtin.debug:
       msg: "{{ text | upper }}"
+
+  - name: convert to upper
+    ansible.builtin.debug:
+      msg: "{{ text | lower }}"
