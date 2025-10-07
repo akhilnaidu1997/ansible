@@ -56,7 +56,7 @@
       msg: "{{ ipaddress | ansible.utils.ipv4 }}"
   
   - name: command module
-    ansible.builtin.command: ls -ltr /tmp
+    ansible.builtin.command: ls -ltr /tmp > output.txt
     register: command_output
 
   - name: print command output
