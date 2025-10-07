@@ -29,8 +29,9 @@
       msg: "{{ tags | items2dict }}"
 
   - name: read from a yaml file
-    test-new: "{{lookup('file','test.yaml' | from_yaml)}}"
+    ansible.builtin.set_fact:
+      test_new: "{{lookup('file','test.yaml' | from_yaml)}}"
 
   - name: convert to json
     ansible.builtin.debug:
-      msg: "{{ test-new | to_json}"
+      msg: "{{ test_new | to_json}"
