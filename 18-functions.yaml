@@ -12,6 +12,7 @@
     - key: Environment
       value: dev
     text: "akhilNAIDU1998@gmail.com"
+    ipaddress: "10.1.1.1123"
   tasks:
   - name: default variables
     ansible.builtin.debug:
@@ -49,3 +50,7 @@
   - name: convert to upper
     ansible.builtin.debug:
       msg: "{{ text | lower }}"
+
+  - name: check if valid IP or not
+    ansible.builtin.debug:
+      msg: "{{ ipaddress | ansible.utils.ipv4 }}"
