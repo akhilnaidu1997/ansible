@@ -38,5 +38,5 @@
 
   - name: copy to a file
     ansible.builtin.copy:
-      src: "{{ test_new | to_nice_json }}"
       dest: ./test-new.json
+      content: "{{ test_new | to_nice_json }}"
