@@ -16,7 +16,7 @@
     ansible.builtin.debug:
       msg: "{{ name | default('Ramesh') }}"
 
-  - name: list to strings
+  - name: string to list
     ansible.builtin.debug:
       msg: "{{ technologies | split(',')}}"
 
@@ -27,3 +27,10 @@
   - name: list to dictionary
     ansible.builtin.debug:
       msg: "{{ tags | items2dict }}"
+
+  - name: read from a yaml file
+    test_new: "{{lookup('file','test.yaml' | from_yaml)}}"
+
+  - name: convert to json
+    ansible.builtin.debug:
+      msg: "{{ test_new | to_json}"
