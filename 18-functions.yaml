@@ -1,9 +1,7 @@
 - name: using functions
   hosts: local
-  connection: local
-  vars:
-    name: Suresh 
+  connection: local 
   tasks:
   - name: default variables
     ansible.builtin.debug:
-      msg: "{{ name | default('Ramesh')}}"
+      msg: "{{ name | mandatory )}}"
