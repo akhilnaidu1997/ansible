@@ -54,3 +54,11 @@
   - name: check if valid IP or not
     ansible.builtin.debug:
       msg: "{{ ipaddress | ansible.utils.ipv4 }}"
+  
+  - name: command module
+    ansible.builtin.command: ls -ltr /tmp
+    register: command_output
+
+  - name: print command output
+    ansible.builtin.debug:
+      msg: "{{ command_output }}"
