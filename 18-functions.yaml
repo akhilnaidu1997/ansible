@@ -34,4 +34,4 @@
 
   - name: convert to json
     ansible.builtin.debug:
-      msg: "{{ test_new | to_json}"
+      msg: "{{ test_new | to_json }}"
