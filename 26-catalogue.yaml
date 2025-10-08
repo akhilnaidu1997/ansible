@@ -21,7 +21,7 @@
       shell: /sbin/nologin
       system: yes
 
-  - name: create directory
+  - name: delete directory
     ansible.builtin.file:
       state: absent
       path: /app
@@ -31,7 +31,7 @@
       state: directory
       path: /app
 
-  - name: create directory
+  - name: delete catalogue code
     ansible.builtin.file:
       state: directory
       path: /tmp/catalogue.zip
