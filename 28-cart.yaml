@@ -21,5 +21,44 @@
       shell: /sbin/nologin
       system: yes
 
-  
-  
+  - name: delete directory
+    ansible.builtin.file:
+      state: absent
+      path: /app
+
+  - name: create directory
+    ansible.builtin.file:
+      state: directory
+      path: /app
+
+  - name: delete user code
+    ansible.builtin.file:
+      state: directory
+      path: /tmp/cart.zip
+
+  - name: download app code to directory
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
+      dest: /tmp/user.zip
+
+  - name: unzip the user code
+    ansible.builtin.unarchive:
+      src: /tmp/cart.zip
+      dest: /app
+      remote_src: yes 
+
+  - name: install dependencies
+    community.general.npm:
+      path: /app
+
+  - name: copy service file
+    ansible.builtin.copy:
+      src: cart.service
+      dest: /etc/systemd/system/cart.service
+
+  - name: relaod, enable and start service 
+    ansible.builtin.systemd_service:
+      name: user
+      state: restarted
+      daemon_reload: true
+      enabled: true
