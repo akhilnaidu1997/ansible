@@ -27,7 +27,7 @@
   - name: create default data
     ansible.builtin.file:
       path: /usr/share/nginx/html/
-      state: present 
+      state: directory 
 
   - name: delete frontend code
     ansible.builtin.file:
