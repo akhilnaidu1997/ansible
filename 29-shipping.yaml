@@ -8,7 +8,6 @@
       state: present 
     loop:
     - maven
-    - PyMySQL
     - cryptography
 
   - name: add user
