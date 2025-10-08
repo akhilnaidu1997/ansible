@@ -4,11 +4,16 @@
   tasks:
   - name: install maven
     ansible.builtin.package:
-      name: "{{ item }}"
+      name: maven
       state: present 
+  
+  - name: python libraries
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
     loop:
-    - maven
     - cryptography
+    - PyMySQL
 
   - name: add user
     ansible.builtin.user:
