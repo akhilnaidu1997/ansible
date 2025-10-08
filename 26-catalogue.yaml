@@ -70,7 +70,18 @@
     ansible.builtin.command: mongosh mongodb.daws86s-akhil.shop --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
 
-  - name: print the output of catalogue
-    ansible.builtin.debug:
-      msg: "{{ catalogue_output }}"
+  # - name: print the output of catalogue
+  #   ansible.builtin.debug:
+  #     msg: "{{ catalogue_output }}"
+
+  - name: load products into mongodb
+    ansible.builtin.shell: mongosh --host mongodb.daws86s-akhil.shop </app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
+
+  - name: relaod, enable and start service 
+    ansible.builtin.systemd_service:
+      name: catalogue
+      state: restarted
+      daemon_reload: true
+      enabled: true
   
