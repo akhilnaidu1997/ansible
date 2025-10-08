@@ -4,7 +4,7 @@
   tasks:
   - name: install maven
     ansible.builtin.package:
-      name: maven
+      name: "{{ item }}"
       state: present 
     loop:
     - maven
