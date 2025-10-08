@@ -42,7 +42,7 @@
       remote_src: yes 
 
   - name: maven package 
-    ansible.builtin.command: maven clean package 
+    ansible.builtin.command: mvn clean package 
     args:
       chdir: /app
 
