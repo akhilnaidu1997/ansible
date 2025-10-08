@@ -1,0 +1,25 @@
+- name: setup cart 
+  hosts: cart 
+  become: yes 
+  tasks:
+  - name: disable nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.dnf:
+      name: nodejs
+      state: present 
+
+  - name: add user
+    ansible.builtin.user:
+      name: roboshop
+      comment: roboshop system user
+      home: /app 
+      shell: /sbin/nologin
+      system: yes
+
+  
+  
