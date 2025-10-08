@@ -1,0 +1,5 @@
+- name: setting up shipping module
+  hosts: shipping
+  become: yes 
+  tasks:
+  - name:

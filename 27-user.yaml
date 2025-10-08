@@ -33,7 +33,7 @@
 
   - name: delete user code
     ansible.builtin.file:
-      state: directory
+      state: absent
       path: /tmp/user.zip
 
   - name: download app code to directory
