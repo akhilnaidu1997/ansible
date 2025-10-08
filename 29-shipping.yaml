@@ -6,6 +6,10 @@
     ansible.builtin.package:
       name: maven
       state: present 
+    loop:
+    - maven
+    - PyMySQL
+    - cryptography
 
   - name: add user
     ansible.builtin.user:
