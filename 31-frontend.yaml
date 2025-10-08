@@ -24,6 +24,16 @@
       path: /usr/share/nginx/html/
       state: absent
 
+  - name: create default data
+    ansible.builtin.file:
+      path: /usr/share/nginx/html/
+      state: present 
+
+  - name: delete frontend code
+    ansible.builtin.file:
+      state: absent
+      path: /tmp/frontend.zip
+
   - name: download app code to directory
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
