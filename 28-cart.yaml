@@ -39,7 +39,7 @@
   - name: download app code to directory
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
-      dest: /tmp/user.zip
+      dest: /tmp/cart.zip
 
   - name: unzip the user code
     ansible.builtin.unarchive:
@@ -58,7 +58,7 @@
 
   - name: relaod, enable and start service 
     ansible.builtin.systemd_service:
-      name: user
+      name: cart 
       state: restarted
       daemon_reload: true
       enabled: true

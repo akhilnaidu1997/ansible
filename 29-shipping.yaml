@@ -2,4 +2,44 @@
   hosts: shipping
   become: yes 
   tasks:
-  - name:
+  - name: install maven
+    ansible.builtin.package:
+      name: maven
+      state: present 
+
+  - name: add user
+    ansible.builtin.user:
+      name: roboshop
+      comment: roboshop system user
+      home: /app 
+      shell: /sbin/nologin
+      system: yes
+
+  - name: delete directory
+    ansible.builtin.file:
+      state: absent
+      path: /app
+
+  - name: create directory
+    ansible.builtin.file:
+      state: directory
+      path: /app
+
+  - name: delete catalogue code
+    ansible.builtin.file:
+      state: absent
+      path: /tmp/shipping.zip
+
+  - name: download app code to directory
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
+      dest: /tmp/shipping.zip
+
+  - name: unzip the code
+    ansible.builtin.unarchive:
+      src: /tmp/shipping.zip
+      dest: /app
+      remote_src: yes 
+
+  
+  
